@@ -3,9 +3,6 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -13,177 +10,150 @@ toc_footers:
 
 includes:
   - errors
+  - data
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+This is unofficial documentation for <a href='ello.co'>Ello</a> API. The documentation is based on scrapping Ello's website
 
 # Authentication
+All API request must be signed with token as URL parameter. Steps below will show how to acquire one.
+## Getting public token
+> To recieve public token, use this code:
 
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+# Send GET request to /webapp-token
+curl https://ello.co/api/webapp-token
 ```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+{"token":
+    {"access_token":"token_string",
+      "token_type":"bearer",
+      "expires_in":604800,
+      "scope":"public scoped_refresh_token",
+      "created_at":1473748758,
+      "expires_at":"2016-09-20T06:39:18.199Z"
+    }
 }
 ```
 
-This endpoint retrieves a specific kitten.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+There is no implicit authorization as of yet. When you send GET request to retrieve any Ello page your browser automatically sends another
+request to
+
+`https://ello.co/api/webapp-token`
+
+which responds with <a href='#token'>Token</a> data type. Token is a complex struct but what we need is an `acces_token` field. It's a public access token
+which allows you to perform all GET requests and used to login user.
+
+## Loging in and recieving private token
+```shell
+curl https://ello.co/api/oauth/login
+-H   "authorization: Bearer <public_token>"
+-H   "Content-Type: application/json"
+-X   POST
+-d   '{"email:""<your_email>", "password":"<your_password>"}'
+
+```
+> Notice how this structure doesn't have "token" as its top field
+
+```json
+{
+  "access_token":"token_string",
+  "token_type":"bearer",
+  "expires_in":604800,
+  "refresh_token":"25990061a3bda23e80ee2bc14c8bbcd1bd68b01e7830b2133954bba04eeb7572",
+  "scope":"public scoped_refresh_token",
+  "created_at":1473769469
+}
+```
+To acquire private token you need to authorize yourself with your account credentials and public access token by posting to
+
+`https://ello.co/api/oauth/login`
+
+This will authorize you as if you logged in to the site
+
+<aside class="notice">
+This step is unnecesery if you only need to GET publicly available information
+</aside>
+
+
+# Posts
+## Search posts 
+```shell
+#Use -G flag to convinietly pass URL parameters
+curl -G https://ello.co/api/v2/posts
+     -d "terms=norway"
+     -d "access_token=<token>"
+```
+### HTTP Request
+`GET https://ello.co/api/v2/posts?terms=<search_parameter>`
+### URL Parameters
+Parameter | Type | Optional | Default | Description
+--------- | ------- | -----------|--------------|------------
+terms | String | false | NULL | Query parameter 
+per_page | Integer | true | 25 | Specifies how many posts to show
+
+
+## GET Information about particular post
+```shell
+curl -G https://ello.co/api/v2/posts/11323555
+     -d "access_token=<token>"
+
+curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug
+     -d "access_token=<token>"          
+```
+
+> Part of the response is not shown due to its size
+
+```json
+{
+  "posts": {
+    "id": "11323555",
+    "href": "/api/v2/posts/11323555",
+    "token": "tkd-_engpxhhy3w4yq9yug",
+    "content_warning": null,
+    "summary": [],
+    "content": [],
+    "created_at": "2016-09-15T11:17:28.267Z",
+    "author_id": "812695",
+    "is_adult_content": false,
+    "body": [],
+    "comments_count": 0,
+    "loves_count": 1,
+    "reposts_count": 0,
+    "views_count": 21,
+    "views_count_rounded": "21",
+    "loved": false,
+    "reposted": false,
+    "links": {}
+    },
+  "linked": {}
+}
+```
 
 ### HTTP Request
+`GET https://ello.co/api/v2/posts/<post_id>`
 
-`GET http://example.com/kittens/<ID>`
+Returns informations about paticular post including information about its author, comments, shares, likes
 
-### URL Parameters
+<aside class="notice">
+Instead of numerical post id the so called token (as seen in the post's respected URL) can be used preceeded with ~
+</aside>
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+## GET Comments associated with the post
+```
+curl -G https://ello.co/api/v2/posts/11322508/comments
+     -d "access_token=<token>"
+```
 
+### HTTP Request
+`GET https://ello.co/api/v2/posts/<id>/comments`
+
+Return all users commented on the post and their comments specified by <a href="#user">User</a> and <a href="#comment">Comment</a> data types
