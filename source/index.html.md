@@ -1,16 +1,18 @@
 ---
-title: API Reference
+title: Ello | Unofficial API Reference
 
 language_tabs:
   - shell
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - posts
+  - user
   - errors
   - data
+
 
 search: true
 ---
@@ -84,76 +86,6 @@ This step is unnecesery if you only need to GET publicly available information
 </aside>
 
 
-# Posts
-## Search posts 
-```shell
-#Use -G flag to convinietly pass URL parameters
-curl -G https://ello.co/api/v2/posts
-     -d "terms=norway"
-     -d "access_token=<token>"
-```
-### HTTP Request
-`GET https://ello.co/api/v2/posts?terms=<search_parameter>`
-### URL Parameters
-Parameter | Type | Optional | Default | Description
---------- | ------- | -----------|--------------|------------
-terms | String | false | NULL | Query parameter 
-per_page | Integer | true | 25 | Specifies how many posts to show
 
 
-## GET Information about particular post
-```shell
-curl -G https://ello.co/api/v2/posts/11323555
-     -d "access_token=<token>"
 
-curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug
-     -d "access_token=<token>"          
-```
-
-> Part of the response is not shown due to its size
-
-```json
-{
-  "posts": {
-    "id": "11323555",
-    "href": "/api/v2/posts/11323555",
-    "token": "tkd-_engpxhhy3w4yq9yug",
-    "content_warning": null,
-    "summary": [],
-    "content": [],
-    "created_at": "2016-09-15T11:17:28.267Z",
-    "author_id": "812695",
-    "is_adult_content": false,
-    "body": [],
-    "comments_count": 0,
-    "loves_count": 1,
-    "reposts_count": 0,
-    "views_count": 21,
-    "views_count_rounded": "21",
-    "loved": false,
-    "reposted": false,
-    "links": {}
-    },
-  "linked": {}
-}
-```
-
-### HTTP Request
-`GET https://ello.co/api/v2/posts/<post_id>`
-
-Returns informations about paticular post including information about its author, comments, shares, likes
-
-<aside class="notice">
-Instead of numerical post id the so called token (as seen in the post's respected URL) can be used preceeded with ~
-</aside>
-
-## GET Comments associated with the post
-```
-curl -G https://ello.co/api/v2/posts/11322508/comments
-     -d "access_token=<token>"
-```
-
-### HTTP Request
-`GET https://ello.co/api/v2/posts/<id>/comments`
-
-Return all users commented on the post and their comments specified by <a href="#user">User</a> and <a href="#comment">Comment</a> data types

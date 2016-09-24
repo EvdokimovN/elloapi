@@ -1,0 +1,145 @@
+"assets": [
+      {
+        "id": "4581000",
+        "attachment": {
+          "original": {
+            "url": "https://assets.ello.co/uploads/asset/attachment/4581000/4C2D3285-0CD8-431B-82F1-FC2C76FF35E0.jpg"
+          },
+          "optimized": {
+            "url": "https://assets.ello.co/uploads/asset/attachment/4581000/ello-optimized-3fe3b705.jpg",
+            "metadata": {
+              "size": 444349,
+              "type": "image/jpeg",
+              "width": 1200,
+              "height": 1200
+            }
+          },
+          "xhdpi": {
+            "url": "https://assets.ello.co/uploads/asset/attachment/4581000/ello-xhdpi-3fe3b705.jpg",
+            "metadata": {
+              "size": 451146,
+              "type": "image/jpeg",
+              "width": 1200,
+              "height": 1200
+            }
+          },
+          "hdpi": {
+            "url": "https://assets.ello.co/uploads/asset/attachment/4581000/ello-hdpi-3fe3b705.jpg",
+            "metadata": {
+              "size": 275716,
+              "type": "image/jpeg",
+              "width": 750,
+              "height": 750
+            }
+          },
+          "mdpi": {
+            "url": "https://assets.ello.co/uploads/asset/attachment/4581000/ello-mdpi-3fe3b705.jpg",
+            "metadata": {
+              "size": 78394,
+              "type": "image/jpeg",
+              "width": 375,
+              "height": 375
+            }
+          },
+          "ldpi": {
+            "url": "https://assets.ello.co/uploads/asset/attachment/4581000/ello-ldpi-3fe3b705.jpg",
+            "metadata": {
+              "size": 22441,
+              "type": "image/jpeg",
+              "width": 180,
+              "height": 180
+            }
+          }
+        }
+      }
+    ]
+    
+    
+    
+    
+      "avatar": {
+        "original": {
+          "url": "https://assets.ello.co/uploads/user/avatar/2823047/ello-830faa7f-6ef9-4083-99c9-51daec0d8c95.jpeg"
+        },
+        "large": {
+          "url": "https://assets.ello.co/uploads/user/avatar/2823047/ello-large-cdc77b54.png",
+          "metadata": {
+            "size": 152136,
+            "type": "image/png",
+            "width": 360,
+            "height": 360
+          }
+        },
+        "regular": {
+          "url": "https://assets.ello.co/uploads/user/avatar/2823047/ello-regular-cdc77b54.png",
+          "metadata": {
+            "size": 20735,
+            "type": "image/png",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "small": {
+          "url": "https://assets.ello.co/uploads/user/avatar/2823047/ello-small-cdc77b54.png",
+          "metadata": {
+            "size": 6089,
+            "type": "image/png",
+            "width": 60,
+            "height": 60
+          }
+        }
+      },
+      
+      
+      
+      
+      "cover_image": {
+        "original": {
+          "url": "https://assets.ello.co/uploads/user/cover_image/2823047/ello-fae23a42-4080-41af-9f34-a3dd86b04637.jpeg"
+        },
+        "optimized": {
+          "url": "https://assets.ello.co/uploads/user/cover_image/2823047/ello-optimized-6fafc11a.jpg",
+          "metadata": {
+            "size": 674714,
+            "type": "image/jpeg",
+            "width": 1280,
+            "height": 853
+          }
+        },
+        "xhdpi": {
+          "url": "https://assets.ello.co/uploads/user/cover_image/2823047/ello-xhdpi-6fafc11a.jpg",
+          "metadata": {
+            "size": 782379,
+            "type": "image/jpeg",
+            "width": 1256,
+            "height": 837
+          }
+        },
+        "hdpi": {
+          "url": "https://assets.ello.co/uploads/user/cover_image/2823047/ello-hdpi-6fafc11a.jpg",
+          "metadata": {
+            "size": 196973,
+            "type": "image/jpeg",
+            "width": 621,
+            "height": 414
+          }
+        },
+        "mdpi": {
+          "url": "https://assets.ello.co/uploads/user/cover_image/2823047/ello-mdpi-6fafc11a.jpg",
+          "metadata": {
+            "size": 52246,
+            "type": "image/jpeg",
+            "width": 311,
+            "height": 207
+          }
+        },
+        "ldpi": {
+          "url": "https://assets.ello.co/uploads/user/cover_image/2823047/ello-ldpi-6fafc11a.jpg",
+          "metadata": {
+            "size": 14265,
+            "type": "image/jpeg",
+            "width": 149,
+            "height": 99
+          }
+        }
+      }
