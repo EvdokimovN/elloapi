@@ -1,7 +1,7 @@
-#Data Types
+# Data Types
 
 
-##Token
+## Token
 
 Field | Type | Description
 --------- | -------- | -----------
@@ -12,7 +12,7 @@ refresh_token | |Unknown
 scope | String |Scope of particular token
 created_at | Integer |Time of creation in UNIX time
 
-##Comment
+## Comment
 
 Field | Type |Description
 --------- | ------ |-----------

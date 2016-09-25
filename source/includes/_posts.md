@@ -58,7 +58,7 @@ curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug
 Returns informations about paticular post including information about its author, comments, shares, likes
 
 <aside class="notice">
-Instead of numerical post id the so called token (as seen in the post's respected URL) can be used preceeded with ~
+Instead of numerical id the so called token (as seen in the URL) can be used preceeded with ~
 </aside>
 
 ## GET Comments associated with the post
@@ -179,18 +179,60 @@ Parameter | Type | Optional | Default | Description
 --------- | ------- | -----------|--------------|------------
 per_page | Integer | true | 25 | Specifies how many users to return
 
+
+## Flag post 
+
+```shell
+curl -X POST \
+     'https://ello.co/api/v2/posts/11391900/flag/violence' \
+     -H 'authorization: Bearer <private_token>' \
+     -d 'access_token=<private_token>' \
+
+curl -X POST 
+     'https://ello.co/api/v2/posts/~uk8eejgz8bumfbh8_5sfmg/flag/spam' \
+     -H 'authorization: Bearer <private_token>' \
+     -d 'access_token=<private_token>' \
+    
+```
+
+### HTTP Request
+`POST https://ello.co/api/v2/posts/11389674/flag/<flag>`
+
+Flags post as inapropriate. If succesfull responds with 204
+
+flag | Disctiption
+--------- | -------
+spam | Spam
+violence | Violence
+copyright | Copyright Infingment
+threatening | Threatening
+hate_speech | Hate Speech
+adult | Adult content that isn't marked NSFW
+offensive | I don't like it 
+
+
+
 ## DELETE post
 
 ```shell
-curl -G https://ello.co/api/v2/posts/11323555
-     -H "authorization: Bearer <private_token>"
-     -d "access_token=<token>"
+curl -X DELETE \
+     'https://ello.co/api/v2/posts/11323555' \
+     -H 'authorization: Bearer <private_token>' \
+     -d 'access_token=<token>' \
 
-curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug
-     -H "authorization: Bearer <private_token>"
-     -d "access_token=<token>"   
+curl -X DELETE 
+     'https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug' \
+     -H 'authorization: Bearer <private_token>' \
+     -d 'access_token=<token>' \
 ```
 ### HTTP Request 
 `DELETE https://ello.co/api/v2/posts/<id>`
 
-Deletes post
+Deletes post. If succesfull reposnds with 204
+
+
+
+
+
+
+

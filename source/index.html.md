@@ -10,8 +10,10 @@ toc_footers:
 includes:
   - posts
   - user
+  - categories
   - errors
   - data
+  
 
 
 search: true

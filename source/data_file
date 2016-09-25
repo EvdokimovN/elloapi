@@ -143,3 +143,54 @@
           }
         }
       }
+      
+      
+      
+      
+      
+      "categories": [
+      {
+        "id": "5",
+        "name": "Illustration",
+        "slug": "illustration",
+        "level": "primary",
+        "order": 6,
+        "links": {
+          "recent": {
+            "related": "/api/v2/categories/illustration/posts/recent"
+          }
+        },
+        "allow_in_onboarding": true,
+        "tile_image": {
+          "original": {
+            "url": "https://assets.ello.co/uploads/category/tile_image/5/ello-optimized-97205974.jpg"
+          },
+          "large": {
+            "url": "https://assets.ello.co/uploads/category/tile_image/5/ello-large-d1336771.png",
+            "metadata": {
+              "size": 698358,
+              "type": "image/png",
+              "width": 1000,
+              "height": 1000
+            }
+          },
+          "regular": {
+            "url": "https://assets.ello.co/uploads/category/tile_image/5/ello-regular-d1336771.png",
+            "metadata": {
+              "size": 503382,
+              "type": "image/png",
+              "width": 800,
+              "height": 800
+            }
+          },
+          "small": {
+            "url": "https://assets.ello.co/uploads/category/tile_image/5/ello-small-d1336771.png",
+            "metadata": {
+              "size": 156708,
+              "type": "image/png",
+              "width": 360,
+              "height": 360
+            }
+          }
+        }
+      },
