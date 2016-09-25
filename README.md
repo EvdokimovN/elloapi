@@ -1,3 +1,4 @@
+<h1><a href="ello.co">Ello</a>API documentation built using Slate [WIP]</h1>
 <p align="center">
   <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
   <br>
