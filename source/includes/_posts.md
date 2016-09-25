@@ -2,9 +2,9 @@
 ## Search posts 
 ```shell
 #Use -G flag to convinietly pass URL parameters
-curl -G https://ello.co/api/v2/posts
-     -d "terms=norway"
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/posts' \
+     -d 'terms=norway' \
+     -d 'access_token=<token>'
 ```
 ### HTTP Request
 `GET https://ello.co/api/v2/posts?terms=<search_parameter>`
@@ -17,11 +17,11 @@ per_page | Integer | true | 25 | Specifies how many posts to show
 
 ## GET Information about particular post
 ```shell
-curl -G https://ello.co/api/v2/posts/11323555
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/posts/11323555' \
+     -d 'access_token=<token>'
 
-curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug
-     -d "access_token=<token>"          
+curl -G 'https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug' \
+     -d 'access_token=<token>'          
 ```
 
 > Part of the response is not shown due to its size
@@ -63,8 +63,8 @@ Instead of numerical id the so called token (as seen in the URL) can be used pre
 
 ## GET Comments associated with the post
 ```shell
-curl -G https://ello.co/api/v2/posts/11322508/comments
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/posts/11322508/comments' \
+     -d 'access_token=<token>'
 ```
 
 ### HTTP Request
@@ -74,11 +74,11 @@ Return all users commented on the post and their comments specified by <a href="
 
 ## GET Users reposted this post
 ```shell
-curl -G https://ello.co/api/v2/posts/11323555/reposters
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/posts/11323555/reposters' \
+     -d 'access_token=<token>' 
 
-curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug/reposters
-     -d "access_token=<token>"          
+curl -G 'https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug/reposters' \
+     -d 'access_token=<token>'           
 ```
 
 ```json
@@ -126,11 +126,11 @@ per_page | Integer | true | 25 | Specifies how many users to return
 ## GET User's liked this post
 
 ```shell
-curl -G https://ello.co/api/v2/posts/11323555/lovers
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/posts/11323555/lovers' \
+     -d 'access_token=<token>'
 
-curl -G https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug/lovers
-     -d "access_token=<token>"   
+curl -G 'https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug/lovers' \
+     -d 'access_token=<token>'   
 ```
 
 ```json
@@ -186,12 +186,12 @@ per_page | Integer | true | 25 | Specifies how many users to return
 curl -X POST \
      'https://ello.co/api/v2/posts/11391900/flag/violence' \
      -H 'authorization: Bearer <private_token>' \
-     -d 'access_token=<private_token>' \
+     -d 'access_token=<private_token>' 
 
 curl -X POST 
      'https://ello.co/api/v2/posts/~uk8eejgz8bumfbh8_5sfmg/flag/spam' \
      -H 'authorization: Bearer <private_token>' \
-     -d 'access_token=<private_token>' \
+     -d 'access_token=<private_token>' 
     
 ```
 
@@ -216,7 +216,7 @@ offensive | I don't like it
 curl -POST \
     'https://ello.co/api/v2/posts' \
     -d 'access_token=<private_token>' \
-    -d {"body":[{"kind":"text","data":"Don't you ever lie to me you beatiful creature"}]}
+    -d `{"body":[{"kind":"text","data":"Don't you ever lie to me you beatiful creature"}]}`
 ```
 ```json
 {
@@ -275,12 +275,12 @@ Creates new post. Contents of the post specified in JSON body array. Each elemen
 curl -X DELETE \
      'https://ello.co/api/v2/posts/11323555' \
      -H 'authorization: Bearer <private_token>' \
-     -d 'access_token=<token>' \
+     -d 'access_token=<token>' 
 
 curl -X DELETE 
      'https://ello.co/api/v2/posts/~tkd-_engpxhhy3w4yq9yug' \
      -H 'authorization: Bearer <private_token>' \
-     -d 'access_token=<token>' \
+     -d 'access_token=<token>' 
 ```
 ### HTTP Request 
 `DELETE https://ello.co/api/v2/posts/<id>`

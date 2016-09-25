@@ -12,6 +12,28 @@ refresh_token | |Unknown
 scope | String |Scope of particular token
 created_at | Integer |Time of creation in UNIX time
 
+## Post
+
+Field | Type | Description
+--------- | -------- | -----------
+id | Integer | Post's internal id
+href | String | API url without host leading to this post
+token | String | Post's string id
+content_warning | Unknown | Defaults to null. Might be not used
+summary | Array | <table><tbody><tr><th>Field</th><th>Type</th><th>Description</th></tr><tr><td>kind</td><td>String</td><td>Posts can be represented by "text", "link", "photo"</td></tr><tr><td>link_url</td><td>String</td><td>Null if post has no links or assets</td></tr><tr><td>data</td><td>String</td><td>Contents escaped HTML  representation</td></tr></tbody></table>
+contents | Array | <table><tbody><tr><th>Field</th><th>Type</th><th>Description</th></tr><tr><td>kind</td><td>String</td><td>Posts can be represented by "text", "link", "photo"</td></tr><tr><td>link_url</td><td>String</td><td>Null if post has no links or assets</td></tr><tr><td>data</td><td>String</td><td>Contents HTML representation</td></tr></tbody></table>
+created_at | DateTime | Post time creation in 2016-09-25T12:29:40.737Z format
+author_id | Integer | Author's internal id
+is_adult_content | Boolean | Is NSFW
+body | Array | JSON post representation as was sent with creation request
+comments_count | Integer | Number of comments post has
+loves_count | Integer | Number of lafter it reaches 1000 views to the neares tenthikes post has
+views_count | Integer | Number of views post has
+views_count_rounded | Integer | Number of views rounded to three significant digits
+loved | Boolean | Does this post has likes
+reposted | Boolean | Has this post been reposted
+watching | Boolen | Is this post watched by some user
+links | Array | Array of <a href="#asset-and-cover-image">Assets</a>
 
 
 ## Comment

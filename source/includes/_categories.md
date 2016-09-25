@@ -4,7 +4,7 @@
 
 ```shell
 
-curl -G 'https://ello.co/api/v2/cateories/posts/recent'
+curl -G 'https://ello.co/api/v2/cateories/posts/recent' \
      -d 'access_token=<token>' 
 ```
 
@@ -44,7 +44,7 @@ per_page | Integer | true | 25 | Specifies how many posts to return
 
 ## GET Recent posts from category
 ```shell
-curl -G 'https://ello.co/api/v2/categories/fashion/posts/recent'
+curl -G 'https://ello.co/api/v2/categories/fashion/posts/recent' \
      -d 'access_token=<token>' 
 ```
 

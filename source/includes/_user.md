@@ -2,11 +2,11 @@
 ## GET Information about user
 
 ```shell
-curl -G https://ello.co/api/v2/users/2706139
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/users/2706139' \
+     -d "access_token=<token>" 
 
-curl -G https://ello.co/api/v2/posts/~mariosupa
-     -d "access_token=<token>"          
+curl -G 'https://ello.co/api/v2/posts/~mariosupa' \
+     -d 'access_token=<token>'          
 ```
 
 ### HTTP Request
@@ -23,11 +23,11 @@ post_count | Boolean | true | true | Specifies to also return information linked
 ## GET User's posts
 
 ```shell
-curl -G https://ello.co/api/v2/users/2706139/posts
-     -d "access_token=<token>"
+curl -G 'https://ello.co/api/v2/users/2706139/posts' \
+     -d 'access_token=<token>'
 
-curl -G https://ello.co/api/v2/users/~mariosupa/posts
-     -d "access_token=<token>"          
+curl -G https://ello.co/api/v2/users/~mariosupa/posts' \
+     -d 'access_token=<token>'          
 ```
 
 ```json
