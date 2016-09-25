@@ -210,6 +210,63 @@ hate_speech | Hate Speech
 adult | Adult content that isn't marked NSFW
 offensive | I don't like it 
 
+## POST new post
+
+```shell
+curl -POST \
+    'https://ello.co/api/v2/posts' \
+    -d 'access_token=<private_token>' \
+    -d {"body":[{"kind":"text","data":"Don't you ever lie to me you beatiful creature"}]}
+```
+```json
+{
+  "posts": {
+    "id": "11400610",
+    "href": "/api/v2/posts/11400610",
+    "token": "xo3ajdgpo3lxth_asp5biw",
+    "content_warning": null,
+    "summary": [
+      {
+        "kind": "text",
+        "link_url": null,
+        "data": "<p>Don&apos;t you ever lie to me you beatiful creature</p>"
+      }
+    ],
+    "content": [
+      {
+        "kind": "text",
+        "link_url": null,
+        "data": "<p>Don't you ever lie to me you beatiful creature</p>"
+      }
+    ],
+    "created_at": "2016-09-25T12:29:40.737Z",
+    "author_id": "1320192",
+    "is_adult_content": false,
+    "body": [
+      {
+        "kind": "text",
+        "data": "Don't you ever lie to me you beatiful creature"
+      }
+    ],
+    "comments_count": 0,
+    "loves_count": 0,
+    "reposts_count": 0,
+    "views_count": 0,
+    "views_count_rounded": "0",
+    "loved": false,
+    "reposted": false,
+    "watching": false,
+    "links": {
+      "assets": []
+    }
+  }
+}
+```
+### HTTP Request 
+`POST https://ello.co/api/v2/posts`
+
+Creates new post. Contents of the post specified in JSON body array. Each element in the array equivilent to Ello's "post bars". For "kind":"text" body is HTML text. For "kind":"image" body is image URL on Ello's servers. If succesfull returns JSON post representation.  
+
 
 
 ## DELETE post
