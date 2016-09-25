@@ -26,7 +26,7 @@ post_count | Boolean | true | true | Specifies to also return information linked
 curl -G 'https://ello.co/api/v2/users/2706139/posts' \
      -d 'access_token=<token>'
 
-curl -G https://ello.co/api/v2/users/~mariosupa/posts' \
+curl -G 'https://ello.co/api/v2/users/~mariosupa/posts' \
      -d 'access_token=<token>'          
 ```
 

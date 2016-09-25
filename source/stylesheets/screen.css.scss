@@ -300,6 +300,7 @@ html, body {
     padding: 0 10px;
     line-height: 30px;
     outline: 0;
+    
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
@@ -334,7 +335,10 @@ html, body {
     display: block;
     clear: both;
   }
-
+    a{
+            line-height: 1;
+    color: #999;
+    }
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
